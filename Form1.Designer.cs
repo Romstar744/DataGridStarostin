@@ -112,6 +112,7 @@
 			this.toolStripAdd.Name = "toolStripAdd";
 			this.toolStripAdd.Size = new System.Drawing.Size(23, 22);
 			this.toolStripAdd.Text = "toolStripButton1";
+			this.toolStripAdd.Click += new System.EventHandler(this.toolStripAdd_Click);
 			// 
 			// toolStrip1
 			// 

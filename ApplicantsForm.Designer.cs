@@ -103,9 +103,9 @@
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label5.Location = new System.Drawing.Point(120, 22);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(172, 20);
+			this.label5.Size = new System.Drawing.Size(198, 20);
 			this.label5.TabIndex = 0;
-			this.label5.Text = "Параметры студента";
+			this.label5.Text = "Параметры абитуриента";
 			// 
 			// button2
 			// 
@@ -151,9 +151,9 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(22, 156);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(33, 13);
+			this.label3.Size = new System.Drawing.Size(86, 13);
 			this.label3.TabIndex = 17;
-			this.label3.Text = "Дата";
+			this.label3.Text = "Дата рождения";
 			// 
 			// dateTimePicker1
 			// 
