@@ -171,6 +171,7 @@
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(203, 21);
 			this.comboBox1.TabIndex = 15;
+			this.comboBox1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox1_DrawItem);
 			// 
 			// label2
 			// 
@@ -213,6 +214,7 @@
 			this.numericUpDown1.Name = "numericUpDown1";
 			this.numericUpDown1.Size = new System.Drawing.Size(203, 20);
 			this.numericUpDown1.TabIndex = 25;
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// numericUpDown2
 			// 
@@ -220,6 +222,7 @@
 			this.numericUpDown2.Name = "numericUpDown2";
 			this.numericUpDown2.Size = new System.Drawing.Size(203, 20);
 			this.numericUpDown2.TabIndex = 26;
+			this.numericUpDown2.ValueChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// numericUpDown3
 			// 
@@ -227,6 +230,7 @@
 			this.numericUpDown3.Name = "numericUpDown3";
 			this.numericUpDown3.Size = new System.Drawing.Size(203, 20);
 			this.numericUpDown3.TabIndex = 27;
+			this.numericUpDown3.ValueChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// label7
 			// 
@@ -266,24 +270,27 @@
 			// 
 			// textBox2
 			// 
+			this.textBox2.Enabled = false;
 			this.textBox2.Location = new System.Drawing.Point(122, 282);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(203, 20);
 			this.textBox2.TabIndex = 32;
+			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// ApplicantsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(428, 383);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label10);
+			this.Controls.Add(this.numericUpDown2);
+			this.Controls.Add(this.numericUpDown1);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.numericUpDown3);
-			this.Controls.Add(this.numericUpDown2);
-			this.Controls.Add(this.numericUpDown1);
 			this.Controls.Add(this.comboBox2);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
@@ -294,6 +301,8 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "ApplicantsForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Ввести данные абитуриента";

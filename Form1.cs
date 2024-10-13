@@ -25,15 +25,17 @@ namespace DataGridStarostin
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = bindingSource;
+            SetStatus();
         }
 
         private void toolStripAdd_Click(object sender, EventArgs e)
         {
             var applicantsForm = new ApplicantsForm();
-            if (applicantsForm.ShowDialog() == DialogResult.OK)
+            if (applicantsForm.ShowDialog() != DialogResult.OK)
             {
                 people.Add(applicantsForm.Applicant);
                 bindingSource.ResetBindings(false);
+                SetStatus();
             }
         }
 
@@ -77,7 +79,7 @@ namespace DataGridStarostin
         {
             toolStripStatusLabel1.Text = $"Всего: {people.Count}";
             toolStripStatusLabel2.Text = $"{people.Where(x => x.Gender == Gender.Female).Count()} Ж/{people.Where(x => x.Gender == Gender.Male).Count()} М";
-            toolStripStatusLabel5.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Count}";
+            toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Count}";
         }
     }
 }

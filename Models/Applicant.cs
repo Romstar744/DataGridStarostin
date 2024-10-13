@@ -18,7 +18,6 @@ namespace DataGridStarostin.Models
         /// </summary>
         [Required]
         [StringLength(50, MinimumLength = 3)]
-
         public string Name { get; set; }
         /// <summary>
         /// <inheritdoc cref="DataGridStarostin.Models.Gender"/>
@@ -33,27 +32,30 @@ namespace DataGridStarostin.Models
         /// <summary>
         /// <inheritdoc cref="DataGridStarostin.Models.Education"/>
         /// </summary>
-        [Range(0, 5)]
         public Education Education { get; set; }
 
         /// <summary>
         /// Средний балл Математика
         /// </summary>
-        public decimal Math { get; set; }
+        [Range(0, 100)]
+        public double Math { get; set; }
 
         /// <summary>
         /// Средний балл Русский
         /// </summary>
-        public decimal Russian { get; set; }
+        [Range(0, 100)]
+        public double Russian { get; set; }
 
         /// <summary>
         /// Средний балл Информатика
         /// </summary>
-        public decimal ComputerScience { get; set; }
+        [Range(0, 100)]
+        public double ComputerScience { get; set; }
 
         /// <summary>
         /// Сумма баллов за 3 экзамена
         /// </summary>
+        [Range(0, 300)]
         public string TotalScore { get; set; }
     }
 }

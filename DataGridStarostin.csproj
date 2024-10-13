@@ -65,6 +65,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
+    <Compile Include="Models\Functions.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\Applicant.cs" />
     <Compile Include="Program.cs" />
