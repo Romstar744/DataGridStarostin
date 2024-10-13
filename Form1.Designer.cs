@@ -94,6 +94,7 @@
 			this.toolStripDelete.Name = "toolStripDelete";
 			this.toolStripDelete.Size = new System.Drawing.Size(23, 22);
 			this.toolStripDelete.Text = "toolStripButton3";
+			this.toolStripDelete.Click += new System.EventHandler(this.toolStripDelete_Click);
 			// 
 			// toolStripEdit
 			// 
@@ -103,6 +104,7 @@
 			this.toolStripEdit.Name = "toolStripEdit";
 			this.toolStripEdit.Size = new System.Drawing.Size(23, 22);
 			this.toolStripEdit.Text = "toolStripButton2";
+			this.toolStripEdit.Click += new System.EventHandler(this.toolStripEdit_Click);
 			// 
 			// toolStripAdd
 			// 
