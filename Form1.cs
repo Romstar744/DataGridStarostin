@@ -31,7 +31,7 @@ namespace DataGridStarostin
         private void toolStripAdd_Click(object sender, EventArgs e)
         {
             var applicantsForm = new ApplicantsForm();
-            if (applicantsForm.ShowDialog() != DialogResult.OK)
+            if (applicantsForm.ShowDialog() == DialogResult.OK)
             {
                 people.Add(applicantsForm.Applicant);
                 bindingSource.ResetBindings(false);

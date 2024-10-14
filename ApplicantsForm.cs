@@ -18,7 +18,6 @@ namespace DataGridStarostin
     public partial class ApplicantsForm : Form
     {
         private Applicant applicant;
-        public Applicant Applicant => applicant;
         public ApplicantsForm(Applicant applicant = null)
         {
             InitializeComponent();
@@ -62,17 +61,19 @@ namespace DataGridStarostin
                 comboBox2.SelectedIndex = 0;
             }
 
-            textBox1.AddBinding(x => x.Text, Applicant, x => x.Name, errorProvider1);
-            comboBox1.AddBinding(x => x.SelectedItem, Applicant, x => x.Gender, errorProvider1);
-            dateTimePicker1.AddBinding(x => x.Value, Applicant, x => x.Birthday, errorProvider1);
-            comboBox2.AddBinding(x => x.SelectedItem, Applicant, x => x.Education, errorProvider1);
-            numericUpDown1.AddBinding(x => x.Value, Applicant, x => x.Math, errorProvider1);
-            numericUpDown2.AddBinding(x => x.Value, Applicant, x => x.Russian, errorProvider1);
-            numericUpDown3.AddBinding(x => x.Value, Applicant, x => x.ComputerScience, errorProvider1);
-            textBox2.AddBinding(x => x.Text, Applicant, x => x.TotalScore, errorProvider1);
-
+            textBox1.AddBinding(x => x.Text, this.applicant, x => x.Name, errorProvider1);
+            comboBox1.AddBinding(x => x.SelectedItem, this.applicant, x => x.Gender, errorProvider1);
+            dateTimePicker1.AddBinding(x => x.Value, this.applicant, x => x.Birthday, errorProvider1);
+            comboBox2.AddBinding(x => x.SelectedItem, this.applicant, x => x.Education, errorProvider1);
+            numericUpDown1.AddBinding(x => x.Value, this.applicant, x => x.Math, errorProvider1);
+            numericUpDown2.AddBinding(x => x.Value, this.applicant, x => x.Russian, errorProvider1);
+            numericUpDown3.AddBinding(x => x.Value, this.applicant, x => x.ComputerScience, errorProvider1);
+            textBox2.AddBinding(x => x.Text, this.applicant, x => x.TotalScore, errorProvider1);
             UpdateData();
         }
+
+        public Applicant Applicant => applicant;
+
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
