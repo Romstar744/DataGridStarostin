@@ -40,7 +40,6 @@ namespace DataGridStarostin
                   Math = applicant.Math,
                   Russian = applicant.Russian,
                   ComputerScience = applicant.ComputerScience,
-                  //TotalScore = applicant.TotalScore,
               };
 
             foreach (var item in Enum.GetValues(typeof(Gender)))
@@ -61,8 +60,6 @@ namespace DataGridStarostin
                 comboBox2.SelectedIndex = 0;
             }
 
-            UpdateData();
-
             textBox1.AddBinding(x => x.Text, this.applicant, x => x.Name, errorProvider1);
             comboBox1.AddBinding(x => x.SelectedItem, this.applicant, x => x.Gender, errorProvider1);
             dateTimePicker1.AddBinding(x => x.Value, this.applicant, x => x.Birthday, errorProvider1);
@@ -70,6 +67,17 @@ namespace DataGridStarostin
             numericUpDown1.AddBinding(x => x.Value, this.applicant, x => x.Math, errorProvider1);
             numericUpDown2.AddBinding(x => x.Value, this.applicant, x => x.Russian, errorProvider1);
             numericUpDown3.AddBinding(x => x.Value, this.applicant, x => x.ComputerScience, errorProvider1);
+        }
+
+        private void CalculateResult()
+        {
+            textBox2.Text = (numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value).ToString();
+        }
+
+
+        private void CalculateResult(object sender, EventArgs e)
+        {
+            CalculateResult();
         }
 
         public Applicant Applicant => applicant;
@@ -94,17 +102,6 @@ namespace DataGridStarostin
             var field = value.GetType().GetField(value.ToString());
             var attributes = field.GetCustomAttributes<DescriptionAttribute>(false);
             return attributes.FirstOrDefault()?.Description ?? "IDK";
-        }
-
-        private void UpdateData()
-        {
-            textBox2.Text = (numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value).ToString();
-        }
-
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            UpdateData();
         }
 
         private void comboBox2_DrawItem(object sender, DrawItemEventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -80,6 +81,17 @@ namespace DataGridStarostin
             toolStripStatusLabel1.Text = $"Всего: {people.Count}";
             toolStripStatusLabel2.Text = $"{people.Where(x => x.Gender == Gender.Female).Count()} Ж/{people.Where(x => x.Gender == Gender.Male).Count()} М";
             toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Where(x => x.TotalScore >= 150).Count()}";
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "TotalScoreColumn")
+            {
+                var data = (Applicant)dataGridView1.Rows[e.RowIndex].DataBoundItem;
+                data.TotalScore = data.Math + data.Russian + data.ComputerScience;
+                e.Value = data.TotalScore;
+                SetStatus();
+            }
         }
     }
 }

@@ -178,6 +178,7 @@
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(841, 379);
 			this.dataGridView1.TabIndex = 7;
+			this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
 			// 
 			// NameColumn
 			// 
