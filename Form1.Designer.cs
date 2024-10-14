@@ -254,7 +254,7 @@
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Данные абитуриентов";
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.statusStrip1.ResumeLayout(false);
