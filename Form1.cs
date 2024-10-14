@@ -79,7 +79,7 @@ namespace DataGridStarostin
         {
             toolStripStatusLabel1.Text = $"Всего: {people.Count}";
             toolStripStatusLabel2.Text = $"{people.Where(x => x.Gender == Gender.Female).Count()} Ж/{people.Where(x => x.Gender == Gender.Male).Count()} М";
-            toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Count}";
+            toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Where(x => x.TotalScore >= 150).Count()}";
         }
     }
 }

@@ -207,6 +207,7 @@
 			this.comboBox2.Name = "comboBox2";
 			this.comboBox2.Size = new System.Drawing.Size(203, 21);
 			this.comboBox2.TabIndex = 24;
+			this.comboBox2.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox2_DrawItem);
 			// 
 			// numericUpDown1
 			// 
@@ -275,7 +276,6 @@
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(203, 20);
 			this.textBox2.TabIndex = 32;
-			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// ApplicantsForm
 			// 

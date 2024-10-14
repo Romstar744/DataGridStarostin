@@ -45,9 +45,11 @@
 			this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.BirthdayColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.AvgGradeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ExpelledColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.DeptColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.EducationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.MathColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.RussianColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ComputerScienceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.TotalScoreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
@@ -110,7 +112,7 @@
             this.toolStripDelete});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 24);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(705, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(841, 25);
 			this.toolStrip1.TabIndex = 5;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -140,7 +142,7 @@
             this.toolStripStatusLabel3});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
 			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(705, 22);
+			this.statusStrip1.Size = new System.Drawing.Size(841, 22);
 			this.statusStrip1.TabIndex = 6;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
@@ -152,7 +154,7 @@
             this.справкаToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(705, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(841, 24);
 			this.menuStrip1.TabIndex = 4;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -165,14 +167,16 @@
             this.NameColumn,
             this.GenderColumn,
             this.BirthdayColumn,
-            this.AvgGradeColumn,
-            this.ExpelledColumn,
-            this.DeptColumn});
+            this.EducationColumn,
+            this.MathColumn,
+            this.RussianColumn,
+            this.ComputerScienceColumn,
+            this.TotalScoreColumn});
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dataGridView1.Location = new System.Drawing.Point(0, 49);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(705, 379);
+			this.dataGridView1.Size = new System.Drawing.Size(841, 379);
 			this.dataGridView1.TabIndex = 7;
 			// 
 			// NameColumn
@@ -196,38 +200,54 @@
 			this.BirthdayColumn.Name = "BirthdayColumn";
 			this.BirthdayColumn.ReadOnly = true;
 			// 
-			// AvgGradeColumn
+			// EducationColumn
 			// 
-			this.AvgGradeColumn.DataPropertyName = "AvgGrade";
-			this.AvgGradeColumn.HeaderText = "Ср. оценка";
-			this.AvgGradeColumn.Name = "AvgGradeColumn";
-			this.AvgGradeColumn.ReadOnly = true;
-			this.AvgGradeColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.AvgGradeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.EducationColumn.DataPropertyName = "Education";
+			this.EducationColumn.HeaderText = "Форма обучения";
+			this.EducationColumn.Name = "EducationColumn";
+			this.EducationColumn.ReadOnly = true;
+			this.EducationColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.EducationColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
-			// ExpelledColumn
+			// MathColumn
 			// 
-			this.ExpelledColumn.DataPropertyName = "Expelled";
-			this.ExpelledColumn.HeaderText = "Отчислен";
-			this.ExpelledColumn.Name = "ExpelledColumn";
-			this.ExpelledColumn.ReadOnly = true;
-			this.ExpelledColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.ExpelledColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.MathColumn.DataPropertyName = "Math";
+			this.MathColumn.HeaderText = "Математика";
+			this.MathColumn.Name = "MathColumn";
+			this.MathColumn.ReadOnly = true;
+			this.MathColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.MathColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
-			// DeptColumn
+			// RussianColumn
 			// 
-			this.DeptColumn.DataPropertyName = "Dept";
-			this.DeptColumn.HeaderText = "Задолженность";
-			this.DeptColumn.Name = "DeptColumn";
-			this.DeptColumn.ReadOnly = true;
-			this.DeptColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.DeptColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.RussianColumn.DataPropertyName = "Russian";
+			this.RussianColumn.HeaderText = "Русский";
+			this.RussianColumn.Name = "RussianColumn";
+			this.RussianColumn.ReadOnly = true;
+			this.RussianColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.RussianColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// ComputerScienceColumn
+			// 
+			this.ComputerScienceColumn.DataPropertyName = "ComputerScience";
+			this.ComputerScienceColumn.HeaderText = "Информатика";
+			this.ComputerScienceColumn.Name = "ComputerScienceColumn";
+			this.ComputerScienceColumn.ReadOnly = true;
+			this.ComputerScienceColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			// 
+			// TotalScoreColumn
+			// 
+			this.TotalScoreColumn.DataPropertyName = "TotalScore";
+			this.TotalScoreColumn.HeaderText = "Сумма баллов";
+			this.TotalScoreColumn.Name = "TotalScoreColumn";
+			this.TotalScoreColumn.ReadOnly = true;
+			this.TotalScoreColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(705, 450);
+			this.ClientSize = new System.Drawing.Size(841, 450);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
@@ -263,9 +283,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GenderColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthdayColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AvgGradeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpelledColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeptColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EducationColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MathColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RussianColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComputerScienceColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalScoreColumn;
     }
 }
 

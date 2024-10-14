@@ -56,6 +56,6 @@ namespace DataGridStarostin.Models
         /// Сумма баллов за 3 экзамена
         /// </summary>
         [Range(0, 300)]
-        public string TotalScore { get; set; }
+        public int TotalScore { get; set; }
     }
 }
