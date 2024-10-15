@@ -74,7 +74,6 @@ namespace DataGridStarostin
             textBox2.Text = (numericUpDown1.Value + numericUpDown2.Value + numericUpDown3.Value).ToString();
         }
 
-
         private void CalculateResult(object sender, EventArgs e)
         {
             CalculateResult();
