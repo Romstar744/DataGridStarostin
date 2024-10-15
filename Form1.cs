@@ -66,7 +66,7 @@ namespace DataGridStarostin
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 var data = (Applicant)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].DataBoundItem;
-                if (MessageBox.Show($"Вы действительно хотите удалить {data.Name}?", "Удаление записи", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show($"Вы действительно хотите удалить абитуриента '{data.Name}'?", "Удаление записи", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     await applicantManager.DeleteAsync(data.Id);
                     bindingSource.ResetBindings(false);

@@ -88,7 +88,7 @@
 			// 
 			// panel2
 			// 
-			this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+			this.panel2.BackColor = System.Drawing.Color.DarkKhaki;
 			this.panel2.Controls.Add(this.label6);
 			this.panel2.Controls.Add(this.pictureBox1);
 			this.panel2.Controls.Add(this.label5);
@@ -103,9 +103,9 @@
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label5.Location = new System.Drawing.Point(120, 22);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(198, 20);
+			this.label5.Size = new System.Drawing.Size(169, 20);
 			this.label5.TabIndex = 0;
-			this.label5.Text = "Параметры абитуриента";
+			this.label5.Text = "Данные абитуриента";
 			// 
 			// button2
 			// 
@@ -129,7 +129,7 @@
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.White;
+			this.panel1.BackColor = System.Drawing.Color.RosyBrown;
 			this.panel1.Controls.Add(this.button2);
 			this.panel1.Controls.Add(this.button1);
 			this.panel1.Location = new System.Drawing.Point(-2, 337);
@@ -282,6 +282,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.BackColor = System.Drawing.Color.Orange;
 			this.ClientSize = new System.Drawing.Size(428, 383);
 			this.ControlBox = false;
 			this.Controls.Add(this.textBox2);

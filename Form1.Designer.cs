@@ -36,11 +36,8 @@
 			this.toolStripEdit = new System.Windows.Forms.ToolStripButton();
 			this.toolStripAdd = new System.Windows.Forms.ToolStripButton();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.правкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.GenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +47,8 @@
 			this.RussianColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ComputerScienceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalScoreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
-			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -111,29 +106,11 @@
             this.toolStripAdd,
             this.toolStripEdit,
             this.toolStripDelete});
-			this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
 			this.toolStrip1.Size = new System.Drawing.Size(841, 25);
 			this.toolStrip1.TabIndex = 5;
 			this.toolStrip1.Text = "toolStrip1";
-			// 
-			// справкаToolStripMenuItem
-			// 
-			this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-			this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-			this.справкаToolStripMenuItem.Text = "Справка";
-			// 
-			// правкаToolStripMenuItem
-			// 
-			this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
-			this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-			this.правкаToolStripMenuItem.Text = "Правка";
-			// 
-			// файлToolStripMenuItem
-			// 
-			this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-			this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-			this.файлToolStripMenuItem.Text = "Файл";
 			// 
 			// statusStrip1
 			// 
@@ -148,22 +125,17 @@
 			this.statusStrip1.TabIndex = 6;
 			this.statusStrip1.Text = "statusStrip1";
 			// 
-			// menuStrip1
+			// toolStripStatusLabel4
 			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.правкаToolStripMenuItem,
-            this.справкаToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(841, 24);
-			this.menuStrip1.TabIndex = 4;
-			this.menuStrip1.Text = "menuStrip1";
+			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+			this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
+			this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
 			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.BackgroundColor = System.Drawing.Color.RosyBrown;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameColumn,
@@ -175,10 +147,10 @@
             this.ComputerScienceColumn,
             this.TotalScoreColumn});
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 49);
+			this.dataGridView1.Location = new System.Drawing.Point(0, 25);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(841, 379);
+			this.dataGridView1.Size = new System.Drawing.Size(841, 403);
 			this.dataGridView1.TabIndex = 7;
 			this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
 			// 
@@ -246,12 +218,6 @@
 			this.TotalScoreColumn.ReadOnly = true;
 			this.TotalScoreColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
-			// toolStripStatusLabel4
-			// 
-			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-			this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
-			this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,7 +227,6 @@
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
-			this.Controls.Add(this.menuStrip1);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
@@ -272,8 +237,6 @@
 			this.toolStrip1.PerformLayout();
 			this.statusStrip1.ResumeLayout(false);
 			this.statusStrip1.PerformLayout();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -288,11 +251,7 @@
         private System.Windows.Forms.ToolStripButton toolStripEdit;
         private System.Windows.Forms.ToolStripButton toolStripAdd;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem правкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GenderColumn;
