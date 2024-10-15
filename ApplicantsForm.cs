@@ -34,9 +34,9 @@ namespace DataGridStarostin
               {
                   Id = applicant.Id,
                   Name = applicant.Name,
-                  Gender = Gender.Male,
+                  Gender = applicant.Gender,
                   Birthday = applicant.Birthday,
-                  Education = Education.FullTime,
+                  Education = applicant.Education,
                   Math = applicant.Math,
                   Russian = applicant.Russian,
                   ComputerScience = applicant.ComputerScience,

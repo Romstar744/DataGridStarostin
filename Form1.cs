@@ -8,79 +8,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGridStarostin.Framework.Contracts;
 using DataGridStarostin.Models;
 
 namespace DataGridStarostin
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Form1 : Form
     {
-        private List<Applicant> people;
+        private IApplicantManager applicantManager;
         private BindingSource bindingSource;
-        public Form1()
+        /// <summary>
+        /// Инициализирует новый экземпляр <see cref="Form1" />
+        /// </summary>
+        /// <param name="applicantManager"></param>
+        public Form1(IApplicantManager applicantManager)
         {
+            this.applicantManager = applicantManager;
             bindingSource = new BindingSource();
-            people = new List<Applicant>();
-            bindingSource.DataSource = people;
 
             InitializeComponent();
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = bindingSource;
-            SetStatus();
         }
 
-        private void toolStripAdd_Click(object sender, EventArgs e)
+        private async void toolStripAdd_Click(object sender, System.EventArgs e)
         {
             var applicantsForm = new ApplicantsForm();
-            if (applicantsForm.ShowDialog() == DialogResult.OK)
+            if (applicantsForm.ShowDialog(this) == DialogResult.OK)
             {
-                people.Add(applicantsForm.Applicant);
+                await applicantManager.AddAsync(applicantsForm.Applicant);
                 bindingSource.ResetBindings(false);
-                SetStatus();
+                await SetStatus();
             }
         }
 
-        private void toolStripEdit_Click(object sender, EventArgs e)
+        private async void toolStripEdit_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 var data = (Applicant)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].DataBoundItem;
-                var personForm = new ApplicantsForm(data);
-                if (personForm.ShowDialog(this) == DialogResult.OK)
+                var applicantsForm = new ApplicantsForm(data);
+                if (applicantsForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    data.Name = personForm.Applicant.Name;
-                    data.Gender = personForm.Applicant.Gender;
-                    data.Birthday = personForm.Applicant.Birthday;
-                    data.Education = personForm.Applicant.Education;
-                    data.Math = personForm.Applicant.Math;
-                    data.Russian = personForm.Applicant.Russian;
-                    data.ComputerScience = personForm.Applicant.ComputerScience;
-                    data.TotalScore = personForm.Applicant.TotalScore;
+                    await applicantManager.EditAsync(applicantsForm.Applicant);
                     bindingSource.ResetBindings(false);
-                    SetStatus();
+                    await SetStatus();
                 }
             }
         }
 
-        private void toolStripDelete_Click(object sender, EventArgs e)
+        private async void toolStripDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 var data = (Applicant)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].DataBoundItem;
                 if (MessageBox.Show($"Вы действительно хотите удалить {data.Name}?", "Удаление записи", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    people.Remove(data);
+                    await applicantManager.DeleteAsync(data.Id);
                     bindingSource.ResetBindings(false);
-                    SetStatus();
+                    await SetStatus();
                 }
             }
         }
 
-        public void SetStatus()
+        public async Task SetStatus()
         {
-            toolStripStatusLabel1.Text = $"Всего: {people.Count}";
-            toolStripStatusLabel2.Text = $"{people.Where(x => x.Gender == Gender.Female).Count()} Ж/{people.Where(x => x.Gender == Gender.Male).Count()} М";
-            toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {people.Where(x => x.TotalScore >= 150).Count()}";
+            var result = await applicantManager.GetStatsAsync();
+            toolStripStatusLabel1.Text = $"Всего: {result.Count}";
+            toolStripStatusLabel2.Text = $"{result.FemaleCount} Ж/{result.MaleCount} М";
+            toolStripStatusLabel3.Text = $"Студенты, набравшие больше 150 баллов в сумме: {result.TotalScoreCount}";
+            toolStripStatusLabel4.Text = $"Очный {result.FullTimeCount} / Oчно-Заочный {result.FTPTCount} / Заочный {result.СorrespondenceCount}";
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -92,6 +93,12 @@ namespace DataGridStarostin
                 e.Value = data.TotalScore;
                 SetStatus();
             }
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            bindingSource.DataSource = await applicantManager.GetAllAsync();
+            await SetStatus();
         }
     }
 }

@@ -56,7 +56,6 @@ namespace DataGridStarostin
             }
 
             if (targetMemeber.Body is UnaryExpression unaryExpression)
-
             {
                 var operand = unaryExpression.Operand as MemberExpression;
                 return operand.Member.Name;

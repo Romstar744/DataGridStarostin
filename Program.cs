@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGridStarostin.Framework.ApplicantManager;
+using DataGridStarostin.Storage.Memory;
 
 namespace DataGridStarostin
 {
@@ -16,7 +18,10 @@ namespace DataGridStarostin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var storage = new MemoryApplicantStorage();
+            var manager = new ApplicantManager(storage);
+
+            Application.Run(new Form1(manager));
         }
     }
 }

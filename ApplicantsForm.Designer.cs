@@ -283,6 +283,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(428, 383);
+			this.ControlBox = false;
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label10);
 			this.Controls.Add(this.numericUpDown2);

@@ -57,7 +57,6 @@
       <DependentUpon>ApplicantsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGenerator.cs" />
-    <Compile Include="Models\Education.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,8 +64,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions.cs" />
-    <Compile Include="Models\Gender.cs" />
-    <Compile Include="Models\Applicant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ApplicantsForm.resx">
@@ -103,6 +100,19 @@
   <ItemGroup>
     <None Include="Resources\tcs61nk83dig738gik8qtkcx6ue7sgek.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataGridStarostin.Framework.ApplicantManager\DataGridStarostin.Framework.ApplicantManager.csproj">
+      <Project>{d4a28e52-9ff9-4938-97df-fd464745750a}</Project>
+      <Name>DataGridStarostin.Framework.ApplicantManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataGridStarostin.Framework.Contracts\DataGridStarostin.Framework.Contracts.csproj">
+      <Project>{1bdc64a6-ddca-4e4e-a158-47f446c5e2d5}</Project>
+      <Name>DataGridStarostin.Framework.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataGridStarostin.Storage.Memory\DataGridStarostin.Storage.Memory.csproj">
+      <Project>{f5698594-7dab-41b4-886d-79b7f6050691}</Project>
+      <Name>DataGridStarostin.Storage.Memory</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

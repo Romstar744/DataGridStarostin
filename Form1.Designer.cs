@@ -50,6 +50,7 @@
 			this.RussianColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ComputerScienceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TotalScoreColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
@@ -139,7 +140,8 @@
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
-            this.toolStripStatusLabel3});
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel4});
 			this.statusStrip1.Location = new System.Drawing.Point(0, 428);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(841, 22);
@@ -244,17 +246,28 @@
 			this.TotalScoreColumn.ReadOnly = true;
 			this.TotalScoreColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
+			// toolStripStatusLabel4
+			// 
+			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+			this.toolStripStatusLabel4.Size = new System.Drawing.Size(118, 17);
+			this.toolStripStatusLabel4.Text = "toolStripStatusLabel4";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(841, 450);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.menuStrip1);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "Form1";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Данные абитуриентов";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.statusStrip1.ResumeLayout(false);
@@ -289,6 +302,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RussianColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ComputerScienceColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalScoreColumn;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 
