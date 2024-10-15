@@ -15,9 +15,15 @@ using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace DataGridStarostin
 {
+    /// <summary>
+    /// Форма добавления данных абитуриентов
+    /// </summary>
     public partial class ApplicantsForm : Form
     {
         private Applicant applicant;
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public ApplicantsForm(Applicant applicant = null)
         {
             InitializeComponent();
@@ -79,6 +85,9 @@ namespace DataGridStarostin
             CalculateResult();
         }
 
+        /// <summary>
+        /// Данные абитуриентов, с которыми работает эта форма
+        /// </summary>
         public Applicant Applicant => applicant;
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)

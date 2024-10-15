@@ -14,16 +14,16 @@ using DataGridStarostin.Models;
 namespace DataGridStarostin
 {
     /// <summary>
-    /// 
+    /// Главная форма приложения
     /// </summary>
     public partial class Form1 : Form
     {
-        private IApplicantManager applicantManager;
-        private BindingSource bindingSource;
+        private readonly IApplicantManager applicantManager;
+        private readonly BindingSource bindingSource;
+
         /// <summary>
-        /// Инициализирует новый экземпляр <see cref="Form1" />
+        /// Конструктор
         /// </summary>
-        /// <param name="applicantManager"></param>
         public Form1(IApplicantManager applicantManager)
         {
             this.applicantManager = applicantManager;
@@ -75,6 +75,9 @@ namespace DataGridStarostin
             }
         }
 
+        /// <summary>
+        /// Обновление статуса данных об абитуриентах
+        /// </summary>
         public async Task SetStatus()
         {
             var result = await applicantManager.GetStatsAsync();

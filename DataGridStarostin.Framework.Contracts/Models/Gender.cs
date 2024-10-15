@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DataGridStarostin.Models
 {
     /// <summary>
-    /// Пол
+    /// Варианты гендерного обозначения (пол)
     /// </summary>
     public enum Gender
     {

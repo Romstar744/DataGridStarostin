@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace DataGridStarostin
 {
-    internal static class Extensions
+    /// <summary>
+    /// Расширения для различных классов
+    /// </summary>
+    public static class Extensions
     {
+        /// <summary>
+        /// Создание связки двух полей
+        /// </summary>
         public static void AddBinding<TControl, TSource>(this TControl target,
             Expression<Func<TControl, object>> targetProperty,
             TSource source,
@@ -48,6 +54,9 @@ namespace DataGridStarostin
             }
         }
 
+        /// <summary>
+        /// Получить имя нужного поля
+        /// </summary>
         private static string GetMemberName<TItem, TMember>(Expression<Func<TItem, TMember>> targetMemeber)
         {
             if (targetMemeber.Body is MemberExpression memberExpression)

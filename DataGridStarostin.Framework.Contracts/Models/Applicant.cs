@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DataGridStarostin.Models
 {
     /// <summary>
-    /// Абитуриент
+    /// Класс для заполнения данных абитуриента
     /// </summary>
     public class Applicant
     {
@@ -19,50 +19,50 @@ namespace DataGridStarostin.Models
         [Required]
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
-		/// <summary>
+        /// <summary>
 		/// <inheritdoc cref="DataGridStarostin.Models.Gender"/>
 		/// </summary>
 		[Required]
-		public Gender Gender { get; set; }
+        public Gender Gender { get; set; }
 
-		/// <summary>
+        /// <summary>
 		/// День рождения
 		/// </summary>
 		[Required]
-		public DateTime Birthday { get; set; }
+        public DateTime Birthday { get; set; }
 
-		/// <summary>
-		/// <inheritdoc cref="DataGridStarostin.Models.Education"/>
+        /// <summary>
+        /// <inheritdoc cref="DataGridStarostin.Models.Education"/>
 		/// </summary>
 		[Required]
-		public Education Education { get; set; }
+        public Education Education { get; set; }
 
         /// <summary>
-        /// Средний балл Математика
+        /// Баллы по математике
         /// </summary>
         [Range(0, 100)]
-		[Required]
-		public double Math { get; set; }
+        [Required]
+        public double Math { get; set; }
 
         /// <summary>
-        /// Средний балл Русский
+        /// Баллы по русскому языку
         /// </summary>
         [Range(0, 100)]
-		[Required]
-		public double Russian { get; set; }
+        [Required]
+        public double Russian { get; set; }
 
         /// <summary>
-        /// Средний балл Информатика
+        /// Баллы по информатике
         /// </summary>
         [Range(0, 100)]
-		[Required]
-		public double ComputerScience { get; set; }
+        [Required]
+        public double ComputerScience { get; set; }
 
         /// <summary>
-        /// Сумма баллов за 3 экзамена
+        /// Сумма баллов за 3 экзамена ЕГЭ
         /// </summary>
         [Range(0, 300)]
-		[Required]
-		public double TotalScore { get; set; }
+        [Required]
+        public double TotalScore { get; set; }
     }
 }

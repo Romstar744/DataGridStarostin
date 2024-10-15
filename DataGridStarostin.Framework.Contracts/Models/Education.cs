@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 namespace DataGridStarostin.Models
 {
     /// <summary>
-    /// Форма обучения
+    /// Варианты формы обучения
     /// </summary>
     public enum Education
     {
         /// <summary>
-        /// 
+        /// Очная
         /// </summary>
-        [Description("Очный")]
+        [Description("Очная")]
         FullTime = 1,
 
         /// <summary>
-        /// Женский
+        /// Очно-заочная
         /// </summary>
-		[Description("Очно-заочный")]
+		[Description("Очно-заочная")]
         FTPT = 2,
 
         /// <summary>
-        /// 
+        /// Заочная
         /// </summary>
-        [Description("Заочный")]
+        [Description("Заочная")]
         Сorrespondence = 3,
     }
 }
