@@ -31,7 +31,7 @@ namespace DataGridStarostin
               ? DataGenerator.CreateApplicant(x =>
               {
                   x.Id = Guid.NewGuid();
-                  x.Name = "Иванов";
+                  x.Name = "Старостин Роман Александрович";
                   x.Gender = Gender.Male;
                   x.Birthday = DateTime.Now.AddYears(-12);
                   x.Education = Education.FullTime;
