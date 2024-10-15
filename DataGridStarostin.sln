@@ -5,6 +5,12 @@ VisualStudioVersion = 17.12.35309.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin", "DataGridStarostin.csproj", "{2D1DA7FA-CC21-4C67-AE4C-9FC77D6AED03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Framework.ApplicantManager", "DataGridStarostin.Framework.ApplicantManager\DataGridStarostin.Framework.ApplicantManager.csproj", "{D4A28E52-9FF9-4938-97DF-FD464745750A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Framework.Contracts", "DataGridStarostin.Framework.Contracts\DataGridStarostin.Framework.Contracts.csproj", "{1BDC64A6-DDCA-4E4E-A158-47F446C5E2D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Storage.Memory", "DataGridStarostin.Storage.Memory\DataGridStarostin.Storage.Memory.csproj", "{F5698594-7DAB-41B4-886D-79B7F6050691}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{2D1DA7FA-CC21-4C67-AE4C-9FC77D6AED03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D1DA7FA-CC21-4C67-AE4C-9FC77D6AED03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D1DA7FA-CC21-4C67-AE4C-9FC77D6AED03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A28E52-9FF9-4938-97DF-FD464745750A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A28E52-9FF9-4938-97DF-FD464745750A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A28E52-9FF9-4938-97DF-FD464745750A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A28E52-9FF9-4938-97DF-FD464745750A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDC64A6-DDCA-4E4E-A158-47F446C5E2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDC64A6-DDCA-4E4E-A158-47F446C5E2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDC64A6-DDCA-4E4E-A158-47F446C5E2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDC64A6-DDCA-4E4E-A158-47F446C5E2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5698594-7DAB-41B4-886D-79B7F6050691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5698594-7DAB-41B4-886D-79B7F6050691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5698594-7DAB-41B4-886D-79B7F6050691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5698594-7DAB-41B4-886D-79B7F6050691}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
