@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataGridStarostin.Framework.Contracts
+﻿namespace DataGridStarostin.Framework.Contracts
 {
     /// <summary>
     /// Интерфейс для вычисляемых данных о списке <see cref="Applicant"/>
