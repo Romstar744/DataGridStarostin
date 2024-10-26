@@ -1,34 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using DataGridStarostin.Standart.ApplicantManager.Models;
 using DataGridStarostin.Standart.Contracts;
 using DataGridStarostin.Standart.Contracts.Models;
+using Microsoft.Extensions.Logging;
+
 
 namespace DataGridStarostin.Standart.ApplicantManager
 {
     /// <inheritdoc cref="IApplicantManager"/>
     public class ApplicantManager : IApplicantManager
     {
-        private IApplicantStorage applicantStorage;
+        private readonly IApplicantStorage applicantStorage;
+        private readonly ILogger logger;
+        private const string StopwatchTemplate = "{0} выполнялся {1} мс";
         /// <summary>
         /// Конструктор
         /// </summary
-        public ApplicantManager(IApplicantStorage applicantStorage)
+        public ApplicantManager(IApplicantStorage applicantStorage, ILogger logger)
         {
+            this.logger = logger;
             this.applicantStorage = applicantStorage;
         }
         /// <inheritdoc cref="IApplicantManager.AddAsync(Applicant)"/>
         public async Task<Applicant> AddAsync(Applicant applicant)
         {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             var result = await applicantStorage.AddAsync(applicant);
+
+            stopwatch.Stop();
+            logger.LogInformation(string.Format(StopwatchTemplate, nameof(AddAsync), stopwatch.ElapsedMilliseconds));
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.DeleteAsync(Guid)"/>
         public async Task<bool> DeleteAsync(Guid id)
         {
             var result = await applicantStorage.DeleteAsync(id);
+            if (result)
+            {
+                logger.LogInformation($"Пользователь с идентификатором {id} удален");
+            }
+            else
+            {
+                logger.LogInformation($"Не уадлось удалить пользователя с идентификатром {id}");
+            }
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.EditAsync(Applicant)"/>
