@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using DataGridStarostin.Models;
+using DataGridStarostin.Standart.Contracts.Models;
 using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace DataGridStarostin
@@ -14,11 +14,11 @@ namespace DataGridStarostin
     /// </summary>
     public partial class ApplicantsForm : Form
     {
-        private Applicant applicant;
+        private ValidateApplicant applicant;
         /// <summary>
         /// Конструктор
         /// </summary>
-        public ApplicantsForm(Applicant applicant = null)
+        public ApplicantsForm(ValidateApplicant applicant = null)
         {
             InitializeComponent();
             this.applicant = applicant == null
@@ -30,7 +30,7 @@ namespace DataGridStarostin
                   x.Birthday = DateTime.Now.AddYears(-12);
                   x.Education = Education.FullTime;
               })
-              : new Applicant
+              : new ValidateApplicant
               {
                   Id = applicant.Id,
                   Name = applicant.Name,
@@ -82,7 +82,7 @@ namespace DataGridStarostin
         /// <summary>
         /// Данные абитуриентов, с которыми работает эта форма
         /// </summary>
-        public Applicant Applicant => applicant;
+        public ValidateApplicant ValidateApplicant => applicant;
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {

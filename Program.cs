@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using DataGridStarostin.Framework.ApplicantManager;
-using DataGridStarostin.Storage.Memory;
+using DataGridStarostin.Standart.ApplicantManager;
+using DataGridStarostin.Standart.Storage.Memory;
 
 namespace DataGridStarostin
 {

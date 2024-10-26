@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValidateApplicant.cs" />
     <Compile Include="ApplicantsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +67,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidateConverter.cs" />
     <EmbeddedResource Include="ApplicantsForm.resx">
       <DependentUpon>ApplicantsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,17 +103,17 @@
     <None Include="Resources\tcs61nk83dig738gik8qtkcx6ue7sgek.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DataGridStarostin.Framework.ApplicantManager\DataGridStarostin.Framework.ApplicantManager.csproj">
-      <Project>{d4a28e52-9ff9-4938-97df-fd464745750a}</Project>
-      <Name>DataGridStarostin.Framework.ApplicantManager</Name>
+    <ProjectReference Include="DataGridStarostin.Standart.ApplicantManager\DataGridStarostin.Standart.ApplicantManager.csproj">
+      <Project>{069a5319-5a2f-4ca0-a2eb-99b27ee65279}</Project>
+      <Name>DataGridStarostin.Standart.ApplicantManager</Name>
     </ProjectReference>
-    <ProjectReference Include="DataGridStarostin.Framework.Contracts\DataGridStarostin.Framework.Contracts.csproj">
-      <Project>{1bdc64a6-ddca-4e4e-a158-47f446c5e2d5}</Project>
-      <Name>DataGridStarostin.Framework.Contracts</Name>
+    <ProjectReference Include="DataGridStarostin.Standart.Contracts\DataGridStarostin.Standart.Contracts.csproj">
+      <Project>{7bdd5e78-9a84-4553-82ed-08340e689753}</Project>
+      <Name>DataGridStarostin.Standart.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="DataGridStarostin.Storage.Memory\DataGridStarostin.Storage.Memory.csproj">
-      <Project>{f5698594-7dab-41b4-886d-79b7f6050691}</Project>
-      <Name>DataGridStarostin.Storage.Memory</Name>
+    <ProjectReference Include="DataGridStarostin.Standart.Storage.Memory\DataGridStarostin.Standart.Storage.Memory.csproj">
+      <Project>{fbf8cb80-dd9b-4f23-929a-f4669ea78a92}</Project>
+      <Name>DataGridStarostin.Standart.Storage.Memory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataGridStarostin.Framework.Contracts;
-using DataGridStarostin.Models;
+using DataGridStarostin.Standart.Contracts;
+using DataGridStarostin.Standart.Contracts.Models;
 
 namespace DataGridStarostin
 {
@@ -33,7 +33,7 @@ namespace DataGridStarostin
             var applicantsForm = new ApplicantsForm();
             if (applicantsForm.ShowDialog(this) == DialogResult.OK)
             {
-                await applicantManager.AddAsync(applicantsForm.Applicant);
+                await applicantManager.AddAsync(ValidateConverter.ToValidateApplicant(applicantsForm.ValidateApplicant));
                 bindingSource.ResetBindings(false);
                 await SetStatus();
             }
@@ -44,10 +44,10 @@ namespace DataGridStarostin
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 var data = (Applicant)dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].DataBoundItem;
-                var applicantsForm = new ApplicantsForm(data);
+                var applicantsForm = new ApplicantsForm(ValidateConverter.ToApplicant(data));
                 if (applicantsForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    await applicantManager.EditAsync(applicantsForm.Applicant);
+                    await applicantManager.EditAsync(ValidateConverter.ToValidateApplicant(applicantsForm.ValidateApplicant));
                     bindingSource.ResetBindings(false);
                     await SetStatus();
                 }

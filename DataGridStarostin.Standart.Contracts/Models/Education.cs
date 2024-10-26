@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DataGridStarostin.Models
+namespace DataGridStarostin.Standart.Contracts.Models
 {
     /// <summary>
     /// Варианты формы обучения

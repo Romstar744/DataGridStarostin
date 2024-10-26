@@ -1,6 +1,7 @@
-﻿using DataGridStarostin.Framework.Contracts;
+﻿
+using DataGridStarostin.Standart.Contracts.Models;
 
-namespace DataGridStarostin.Framework.ApplicantManager.Models
+namespace DataGridStarostin.Standart.ApplicantManager.Models
 {
     /// <summary>
     /// Вычисляемые данные о списке <see cref="Applicant"/>

@@ -1,5 +1,5 @@
 ﻿using System;
-using DataGridStarostin.Models;
+using DataGridStarostin.Standart.Contracts.Models;
 
 namespace DataGridStarostin
 {
@@ -9,11 +9,11 @@ namespace DataGridStarostin
     public static class DataGenerator
     {
         /// <summary>
-        /// Сгенерировать <see cref="Applicant"/> по стандартным параметрам или по заданным
+        /// Сгенерировать <see cref="ValidateApplicant"/> по стандартным параметрам или по заданным
         /// </summary>
-        public static Applicant CreateApplicant(Action<Applicant> settings = null)
+        public static ValidateApplicant CreateApplicant(Action<ValidateApplicant> settings = null)
         {
-            var result = new Applicant
+            var result = new ValidateApplicant
             {
                 Id = Guid.NewGuid(),
                 Name = Guid.NewGuid().ToString(),

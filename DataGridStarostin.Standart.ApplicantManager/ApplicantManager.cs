@@ -1,12 +1,12 @@
-﻿using DataGridStarostin.Framework.ApplicantManager.Models;
-using DataGridStarostin.Framework.Contracts;
-using DataGridStarostin.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataGridStarostin.Standart.ApplicantManager.Models;
+using DataGridStarostin.Standart.Contracts;
+using DataGridStarostin.Standart.Contracts.Models;
 
-namespace DataGridStarostin.Framework.ApplicantManager
+namespace DataGridStarostin.Standart.ApplicantManager
 {
     /// <inheritdoc cref="IApplicantManager"/>
     public class ApplicantManager : IApplicantManager
