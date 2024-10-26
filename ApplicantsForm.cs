@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
 using DataGridStarostin.Standart.Contracts.Models;
@@ -22,14 +25,17 @@ namespace DataGridStarostin
         {
             InitializeComponent();
             this.applicant = applicant == null
-              ? DataGenerator.CreateApplicant(x =>
+              ? new ValidateApplicant
               {
-                  x.Id = Guid.NewGuid();
-                  x.Name = "Старостин Роман Александрович";
-                  x.Gender = Gender.Male;
-                  x.Birthday = DateTime.Now.AddYears(-12);
-                  x.Education = Education.FullTime;
-              })
+                  Id = Guid.NewGuid(),
+                  Name = "Старостин Роман Александрович",
+                  Gender = Gender.Male,
+                  Birthday = DateTime.Now.AddYears(-12),
+                  Education = Education.FullTime,
+                  Math = 100,
+                  Russian = 100,
+                  ComputerScience = 100,
+              }
               : new ValidateApplicant
               {
                   Id = applicant.Id,
@@ -125,6 +131,22 @@ namespace DataGridStarostin
             var field = value.GetType().GetField(value.ToString());
             var attributes = field.GetCustomAttributes<DescriptionAttribute>(false);
             return attributes.FirstOrDefault()?.Description ?? "IDK";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidatableApplicant(applicant))
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
+
+        private bool ValidatableApplicant(ValidateApplicant applicant)
+        {
+            var context = new ValidationContext(applicant, serviceProvider: null, items: null);
+            var results = new List<ValidationResult>();
+            return Validator.TryValidateObject(applicant, context, results, true);
         }
     }
 }
