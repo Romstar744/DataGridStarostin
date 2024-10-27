@@ -16,7 +16,6 @@ namespace DataGridStarostin.Standart.ApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
         private readonly ILogger logger;
-        private const string StopwatchTemplate = "{0} выполнялся {1} мс";
         /// <summary>
         /// Конструктор
         /// </summary
@@ -26,53 +25,132 @@ namespace DataGridStarostin.Standart.ApplicantManager
             this.applicantStorage = applicantStorage;
         }
         /// <inheritdoc cref="IApplicantManager.AddAsync(Applicant)"/>
-        public async Task<Applicant> AddAsync(Applicant applicant)
+        async Task<Applicant> IApplicantManager.AddAsync(Applicant applicant)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var result = await applicantStorage.AddAsync(applicant);
+            Applicant result;
+            try
+            {
+                result = await applicantStorage.AddAsync(applicant);
+            }
+            catch (Exception ex)
+            {
+                stopwatch.Stop();
+                LoggingHelper.LogErrorApplicant(
+                    logger,
+                    nameof(IApplicantManager.AddAsync),
+                    applicant.Id,
+                    stopwatch.ElapsedMilliseconds,
+                    ex.Message,
+                    applicant.Name
+                    );
+                return null;
+            }
 
             stopwatch.Stop();
-            logger.LogInformation(string.Format(StopwatchTemplate, nameof(AddAsync), stopwatch.ElapsedMilliseconds));
+            LoggingHelper.LogInfoApplicant(
+                logger,
+                nameof(IApplicantManager.AddAsync),
+                applicant.Id,
+                stopwatch.ElapsedMilliseconds,
+                applicant.Name
+                );
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.DeleteAsync(Guid)"/>
-        public async Task<bool> DeleteAsync(Guid id)
+        async Task<bool> IApplicantManager.DeleteAsync(Guid id)
         {
-            var result = await applicantStorage.DeleteAsync(id);
-            if (result)
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            bool result;
+            try
             {
-                logger.LogInformation($"Пользователь с идентификатором {id} удален");
+                result = await applicantStorage.DeleteAsync(id);
             }
-            else
+            catch (Exception ex)
             {
-                logger.LogInformation($"Не уадлось удалить пользователя с идентификатром {id}");
+                stopwatch.Stop();
+                LoggingHelper.LogErrorApplicant(logger, nameof(IApplicantManager.DeleteAsync),
+                         id,
+                         stopwatch.ElapsedMilliseconds,
+                         ex.Message
+                         );
+                return false;
             }
+
+            stopwatch.Stop();
+            LoggingHelper.LogInfoApplicant(logger, nameof(IApplicantManager.DeleteAsync),
+                    id,
+                    stopwatch.ElapsedMilliseconds
+                );
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.EditAsync(Applicant)"/>
-        public Task EditAsync(Applicant applicant)
-            => applicantStorage.EditAsync(applicant);
-
-        /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
-        public Task<IReadOnlyCollection<Applicant>> GetAllAsync()
-            => applicantStorage.GetAllAsync();
-
-        /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
-        public async Task<IApplicantStats> GetStatsAsync()
+        async Task IApplicantManager.EditAsync(Applicant applicant)
         {
-            var result = await applicantStorage.GetAllAsync();
-            return new ApplicantStatsModel
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            try
             {
-                Count = result.Count,
-                MaleCount = result.Where(x => x.Gender == Gender.Male).Count(),
-                FemaleCount = result.Where(x => x.Gender == Gender.Female).Count(),
-                FullTimeCount = result.Where(x => x.Education == Education.FullTime).Count(),
-                FTPTCount = result.Where(x => x.Education == Education.FTPT).Count(),
-                СorrespondenceCount = result.Where(x => x.Education == Education.Сorrespondence).Count(),
-                TotalScoreCount = result.Where(x => x.TotalScore >= 150).Count(),
-            };
+                await applicantStorage.EditAsync(applicant);
+            }
+            catch (Exception ex)
+            {
+                stopwatch.Stop();
+                LoggingHelper.LogErrorApplicant(logger, nameof(IApplicantManager.EditAsync),
+                         applicant.Id,
+                         stopwatch.ElapsedMilliseconds,
+                         ex.Message,
+                         applicant.Name
+                         );
+            }
+
+            stopwatch.Stop();
+            LoggingHelper.LogInfoApplicant(logger, nameof(IApplicantManager.EditAsync),
+                    applicant.Id,
+                    stopwatch.ElapsedMilliseconds,
+                    applicant.Name
+                );
+        }
+        /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
+        async Task<IReadOnlyCollection<Applicant>> IApplicantManager.GetAllAsync()
+        {
+            try
+            {
+                return await applicantStorage.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+                LoggingHelper.LogError(logger, nameof(IApplicantManager.GetAllAsync), ex.Message);
+            }
+            return null;
+        }
+        /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
+        async Task<IApplicantStats> IApplicantManager.GetStatsAsync()
+        {
+            try
+            {
+                var result = await applicantStorage.GetAllAsync();
+                return new ApplicantStatsModel
+                {
+                    Count = result.Count,
+                    MaleCount = result.Where(x => x.Gender == Gender.Male).Count(),
+                    FemaleCount = result.Where(x => x.Gender == Gender.Female).Count(),
+                    FullTimeCount = result.Where(x => x.Education == Education.FullTime).Count(),
+                    FTPTCount = result.Where(x => x.Education == Education.FTPT).Count(),
+                    СorrespondenceCount = result.Where(x => x.Education == Education.Сorrespondence).Count(),
+                    TotalScoreCount = result.Where(x => x.TotalScore >= 150).Count(),
+                };
+            }
+            catch (Exception ex)
+            {
+                LoggingHelper.LogError(logger, nameof(IApplicantManager.GetStatsAsync), ex.Message);
+            }
+            return null;
         }
     }
 }
