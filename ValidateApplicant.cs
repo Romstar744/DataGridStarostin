@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace DataGridStarostin.Models
+namespace DataGridStarostin.Standart.Contracts.Models
 {
+
     /// <summary>
     /// Класс для заполнения данных абитуриента
     /// </summary>
-    public class Applicant
+    public class ValidateApplicant
     {
         public Guid Id { get; set; }
         /// <summary>
@@ -16,21 +17,21 @@ namespace DataGridStarostin.Models
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
         /// <summary>
-		/// <inheritdoc cref="DataGridStarostin.Models.Gender"/>
-		/// </summary>
-		[Required]
+        /// <inheritdoc cref="DataGridStarostin.Models.Gender"/>
+        /// </summary>
+        [Required]
         public Gender Gender { get; set; }
 
         /// <summary>
-		/// День рождения
-		/// </summary>
-		[Required]
+        /// День рождения
+        /// </summary>
+        [Required]
         public DateTime Birthday { get; set; }
 
         /// <summary>
         /// <inheritdoc cref="DataGridStarostin.Models.Education"/>
-		/// </summary>
-		[Required]
+        /// </summary>
+        [Required]
         public Education Education { get; set; }
 
         /// <summary>

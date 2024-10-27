@@ -1,4 +1,4 @@
-﻿namespace DataGridStarostin.Framework.Contracts
+﻿namespace DataGridStarostin.Standart.Contracts.Models
 {
     /// <summary>
     /// Интерфейс для вычисляемых данных о списке <see cref="Applicant"/>
@@ -42,7 +42,7 @@
         /// </summary>
         double ComputerScienceCount { get; }
         /// <summary>
-        /// Общее количестов баллов у абитуриентов за все экзамены
+        /// Общее количество баллов у абитуриентов за все экзамены
         /// </summary>
         double TotalScoreCount { get; }
     }

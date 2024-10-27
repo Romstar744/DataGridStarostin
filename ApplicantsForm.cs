@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
-using DataGridStarostin.Models;
+using DataGridStarostin.Standart.Contracts.Models;
 using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace DataGridStarostin
@@ -14,23 +17,26 @@ namespace DataGridStarostin
     /// </summary>
     public partial class ApplicantsForm : Form
     {
-        private Applicant applicant;
+        private ValidateApplicant applicant;
         /// <summary>
         /// Конструктор
         /// </summary>
-        public ApplicantsForm(Applicant applicant = null)
+        public ApplicantsForm(ValidateApplicant applicant = null)
         {
             InitializeComponent();
             this.applicant = applicant == null
-              ? DataGenerator.CreateApplicant(x =>
+              ? new ValidateApplicant
               {
-                  x.Id = Guid.NewGuid();
-                  x.Name = "Старостин Роман Александрович";
-                  x.Gender = Gender.Male;
-                  x.Birthday = DateTime.Now.AddYears(-12);
-                  x.Education = Education.FullTime;
-              })
-              : new Applicant
+                  Id = Guid.NewGuid(),
+                  Name = "Старостин Роман Александрович",
+                  Gender = Gender.Male,
+                  Birthday = DateTime.Now.AddYears(-12),
+                  Education = Education.FullTime,
+                  Math = 100,
+                  Russian = 100,
+                  ComputerScience = 100,
+              }
+              : new ValidateApplicant
               {
                   Id = applicant.Id,
                   Name = applicant.Name,
@@ -82,7 +88,7 @@ namespace DataGridStarostin
         /// <summary>
         /// Данные абитуриентов, с которыми работает эта форма
         /// </summary>
-        public Applicant Applicant => applicant;
+        public ValidateApplicant ValidateApplicant => applicant;
 
         private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -125,6 +131,22 @@ namespace DataGridStarostin
             var field = value.GetType().GetField(value.ToString());
             var attributes = field.GetCustomAttributes<DescriptionAttribute>(false);
             return attributes.FirstOrDefault()?.Description ?? "IDK";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ValidatableApplicant(applicant))
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
+
+        private bool ValidatableApplicant(ValidateApplicant applicant)
+        {
+            var context = new ValidationContext(applicant, serviceProvider: null, items: null);
+            var results = new List<ValidationResult>();
+            return Validator.TryValidateObject(applicant, context, results, true);
         }
     }
 }

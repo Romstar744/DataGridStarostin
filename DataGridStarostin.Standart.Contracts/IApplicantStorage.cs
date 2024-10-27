@@ -1,9 +1,9 @@
-﻿using DataGridStarostin.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DataGridStarostin.Standart.Contracts.Models;
 
-namespace DataGridStarostin.Framework.Contracts
+namespace DataGridStarostin.Standart.Contracts
 {
     /// <summary>
     /// Интерфейс хранилища данных абитуриентов
