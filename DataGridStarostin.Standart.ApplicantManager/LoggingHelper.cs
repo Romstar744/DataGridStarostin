@@ -21,14 +21,14 @@ namespace DataGridStarostin.Standart.ApplicantManager
         {
             logger.LogError(
                 string.Format(
-                ErrorLoggerTemplateApplicant,
-                actionName,
-                applicantId,
-                applicantName ?? "-",
-                msElapsed,
-                DateTime.Now,
-                errorMessage
-                )
+                            ErrorLoggerTemplateApplicant,
+                            actionName,
+                            applicantId,
+                            applicantName ?? "-",
+                            msElapsed,
+                            DateTime.Now,
+                            errorMessage
+                            )
                 );
         }
 
@@ -39,13 +39,13 @@ namespace DataGridStarostin.Standart.ApplicantManager
         {
             logger.LogInformation(
                 string.Format(
-                InfoLoggerTemplateApplicant,
-                actionName,
-                applicantId,
-                applicantName ?? "-",
-                msElapsed,
-                DateTime.Now
-                )
+                              InfoLoggerTemplateApplicant,
+                              actionName,
+                              applicantId,
+                              applicantName ?? "-",
+                              msElapsed,
+                              DateTime.Now
+                              )
                 );
         }
 
@@ -55,12 +55,12 @@ namespace DataGridStarostin.Standart.ApplicantManager
         public static void LogError(ILogger logger, string actionName, string errorMessage)
         {
             logger.LogError(string.Format(
-            ErrorLoggerTemplateCommon,
-            actionName,
-            DateTime.Now,
-            errorMessage
-            )
-            );
+                                          ErrorLoggerTemplateCommon,
+                                          actionName,
+                                          DateTime.Now,
+                                          errorMessage
+                                          )
+                );
         }
     }
 }
