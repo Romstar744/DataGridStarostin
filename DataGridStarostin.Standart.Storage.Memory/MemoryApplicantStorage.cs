@@ -49,7 +49,7 @@ namespace DataGridStarostin.Standart.Storage.Memory
         public Task EditAsync(Applicant applicant)
         {
             var target = people.FirstOrDefault(x => x.Id == applicant.Id);
-            if (applicant != null)
+            if (target != null)
             {
                 target.Name = applicant.Name;
                 target.Gender = applicant.Gender;

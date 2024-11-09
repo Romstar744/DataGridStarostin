@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridStarostin.Standart.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.Storage.Memory.Tests", "DataGridStarostin.Standart.Storage.Memory.Tests\DataGridStarostin.Standart.Storage.Memory.Tests.csproj", "{C7DC1703-01CA-443E-87DA-62AED7EB586B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.ApplicantManager.Tests", "DataGridStarostin.Standart.ApplicantManager.Tests\DataGridStarostin.Standart.ApplicantManager.Tests.csproj", "{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C7DC1703-01CA-443E-87DA-62AED7EB586B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7DC1703-01CA-443E-87DA-62AED7EB586B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DC1703-01CA-443E-87DA-62AED7EB586B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

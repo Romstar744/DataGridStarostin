@@ -16,6 +16,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
         private readonly ILogger logger;
+
         /// <summary>
         /// Конструктор
         /// </summary
