@@ -49,7 +49,7 @@ namespace DataGridStarostin.Standart.Storage.Memory
         public Task EditAsync(Applicant applicant)
         {
             var target = people.FirstOrDefault(x => x.Id == applicant.Id);
-            if (applicant != null)
+            if (target != null)
             {
                 target.Name = applicant.Name;
                 target.Gender = applicant.Gender;
@@ -58,7 +58,6 @@ namespace DataGridStarostin.Standart.Storage.Memory
                 target.Math = applicant.Math;
                 target.Russian = applicant.Russian;
                 target.ComputerScience = applicant.ComputerScience;
-                target.TotalScore = applicant.TotalScore;
             }
 
             return Task.CompletedTask;

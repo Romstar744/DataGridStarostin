@@ -58,8 +58,5 @@ namespace DataGridStarostin.Standart.Contracts.Models
         /// <summary>
         /// Сумма баллов за 3 экзамена ЕГЭ
         /// </summary>
-        [Range(0, 300)]
-        [Required]
-        public double TotalScore { get; set; }
     }
 }
