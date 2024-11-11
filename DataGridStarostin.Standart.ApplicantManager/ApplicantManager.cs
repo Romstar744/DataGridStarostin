@@ -16,6 +16,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
         private readonly ILogger logger;
+
         /// <summary>
         /// Конструктор
         /// </summary
@@ -24,6 +25,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
             this.logger = logger;
             this.applicantStorage = applicantStorage;
         }
+
         /// <inheritdoc cref="IApplicantManager.AddAsync(Applicant)"/>
         async Task<Applicant> IApplicantManager.AddAsync(Applicant applicant)
         {
@@ -59,6 +61,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
                 );
             return result;
         }
+
         /// <inheritdoc cref="IApplicantManager.DeleteAsync(Guid)"/>
         async Task<bool> IApplicantManager.DeleteAsync(Guid id)
         {
@@ -88,6 +91,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
                 );
             return result;
         }
+
         /// <inheritdoc cref="IApplicantManager.EditAsync(Applicant)"/>
         async Task IApplicantManager.EditAsync(Applicant applicant)
         {
@@ -116,6 +120,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
                     applicant.Name
                 );
         }
+
         /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
         async Task<IReadOnlyCollection<Applicant>> IApplicantManager.GetAllAsync()
         {
@@ -129,6 +134,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
             }
             return null;
         }
+
         /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
         async Task<IApplicantStats> IApplicantManager.GetStatsAsync()
         {
