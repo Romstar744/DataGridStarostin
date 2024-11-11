@@ -16,6 +16,8 @@ namespace DataGridStarostin.Standart.ApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
         private readonly ILogger logger;
+        private const string InfoLoggerTxt = "Действие {@applicant} c id {ID}, выполненно за {Milliseconds} мс";
+        private const string ErrorLoggerTxt = "Действие {@applicant} c id {ID}, не было выполненно";
 
         /// <summary>
         /// Конструктор
@@ -39,17 +41,21 @@ namespace DataGridStarostin.Standart.ApplicantManager
             catch (Exception ex)
             {
                 stopwatch.Stop();
-                logger.LogInformation("Ошибка при добавлении студента {id} : {elapsedTime} мс. {@applicant}",
-                                                applicant.Id,
-                                                stopwatch.ElapsedMilliseconds, applicant);
+                logger.LogInformation(
+                    ErrorLoggerTxt,
+                    nameof(IApplicantManager.AddAsync),
+                    applicant.Id
+                    );
                 return null;
             }
 
             stopwatch.Stop();
-            logger.LogInformation("Добавление студента {id} : {elapsedTime} мс. {@applicant}",
-                                                applicant.Id,
-                                                stopwatch.ElapsedMilliseconds, applicant);
-
+            logger.LogInformation(
+                InfoLoggerTxt,
+                nameof(IApplicantManager.AddAsync),
+                applicant.Id,
+                stopwatch.ElapsedMilliseconds
+                );
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.DeleteAsync(Guid)"/>
@@ -66,16 +72,17 @@ namespace DataGridStarostin.Standart.ApplicantManager
             catch (Exception ex)
             {
                 stopwatch.Stop();
-                logger.LogInformation("Ошибка при удалении студента {id} : {elapsedTime} мс.",
-                                                id,
-                                                stopwatch.ElapsedMilliseconds);
+                logger.LogInformation(ErrorLoggerTxt, nameof(IApplicantManager.DeleteAsync),
+                         id
+                         );
                 return false;
             }
 
             stopwatch.Stop();
-            logger.LogInformation("Удаление студента {id} : {elapsedTime} мс",
-                                                id,
-                                                stopwatch.ElapsedMilliseconds);
+            logger.LogInformation(InfoLoggerTxt, nameof(IApplicantManager.DeleteAsync),
+                    id,
+                    stopwatch.ElapsedMilliseconds
+                );
             return result;
         }
         /// <inheritdoc cref="IApplicantManager.EditAsync(Applicant)"/>
@@ -91,15 +98,16 @@ namespace DataGridStarostin.Standart.ApplicantManager
             catch (Exception ex)
             {
                 stopwatch.Stop();
-                logger.LogInformation("Ошибка при изменении студента {id} : {elapsedTime} мс. {@applicant}",
-                                                applicant.Id,
-                                                stopwatch.ElapsedMilliseconds, applicant);
+                logger.LogInformation(ErrorLoggerTxt, nameof(IApplicantManager.EditAsync),
+                         applicant.Id
+                         );
             }
 
             stopwatch.Stop();
-            logger.LogInformation("Изменение студента {id} : {elapsedTime} мс. {@applicant}",
-                                                applicant.Id,
-                                                stopwatch.ElapsedMilliseconds, applicant);
+            logger.LogInformation(InfoLoggerTxt, nameof(IApplicantManager.EditAsync),
+                    applicant.Id,
+                    stopwatch.ElapsedMilliseconds
+                );
         }
         /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
         async Task<IReadOnlyCollection<Applicant>> IApplicantManager.GetAllAsync()

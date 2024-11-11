@@ -84,5 +84,67 @@ namespace DataGridStarostin.Standart.Storage.Memory.Tests
                     model.Gender,
                 });
         }
+
+        /// <summary>
+        /// Удаление из хранилища
+        /// </summary>
+        [Fact]
+        public async Task DeleteShouldReturnTrue()
+        {
+            // Arrange
+            var model = new Applicant
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Gender = Gender.Male,
+                Birthday = DateTime.Now,
+                Education = Education.FTPT,
+                Math = 52,
+                Russian = 52,
+                ComputerScience = 52,
+            };
+
+            // Act
+            await applicantStorage.AddAsync(model);
+            var result = await applicantStorage.DeleteAsync(model.Id);
+
+            var nailList = await applicantStorage.GetAllAsync();
+            var tryGetModel = nailList.FirstOrDefault(x => x.Id == model.Id);
+
+            // Assert
+            result.Should().BeTrue();
+            tryGetModel.Should().BeNull();
+        }
+
+        /// <summary>
+        /// Изменение данных в хранилище
+        /// </summary>
+        [Fact]
+        public async Task EditShouldUpdateStorageData()
+        {
+            // Arrange
+            var model = new Applicant
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Gender = Gender.Male,
+                Birthday = DateTime.Now,
+                Education = Education.FTPT,
+                Math = 52,
+                Russian = 52,
+                ComputerScience = 52,
+            };
+
+            // Act
+            await applicantStorage.AddAsync(model);
+            await applicantStorage.EditAsync(model);
+            var applicantList = await applicantStorage.GetAllAsync();
+            var result = applicantList.FirstOrDefault(x => x.Id == model.Id);
+
+            // Assert
+            result?.Should().NotBeNull();
+            result?.Id.Should().Be(model.Id);
+            result?.Gender.Should().Be(Gender.Male);
+        }
     }
 }

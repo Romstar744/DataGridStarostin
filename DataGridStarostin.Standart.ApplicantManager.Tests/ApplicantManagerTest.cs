@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DataGridStarostin.Standart.Contracts;
 using DataGridStarostin.Standart.Contracts.Models;
@@ -32,8 +33,7 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
                 null,
                 It.IsAny<Func<It.IsAnyType, Exception, string>>()));
 
-            applicantManager = new ApplicantManager(applicantStorageMock.Object,
-                Mock.Of<ILogger>());
+            applicantManager = new ApplicantManager(applicantStorageMock.Object, loggerMock.Object);
         }
 
         /// <summary>
@@ -63,9 +63,99 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
             // Asset
             result.Should().NotBeNull()
                 .And.Be(model);
+
+            loggerMock.Verify(x => x.Log
+            (LogLevel.Information,
+            It.IsAny<EventId>(),
+            It.Is<It.IsAnyType>((state, t) => state.ToString().Contains(nameof(IApplicantManager.AddAsync))),
+            null,
+            It.IsAny<Func<It.IsAnyType, Exception, string>>()),
+            Times.Once);
+            loggerMock.VerifyNoOtherCalls();
+
             applicantStorageMock.Verify(x => x.AddAsync(It.Is<Applicant>(y => y.Id == model.Id)),
                 Times.Once);
             applicantStorageMock.VerifyNoOtherCalls();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Fact]
+        public async Task EditShouldWork()
+        {
+            // Arrange
+            var model = new Applicant
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Gender = Gender.Male,
+                Birthday = DateTime.Now,
+                Education = Education.FTPT,
+                Math = 52,
+                Russian = 52,
+                ComputerScience = 52,
+            };
+            applicantStorageMock.Setup(x => x.EditAsync(It.IsAny<Applicant>())).Returns(Task.CompletedTask);
+
+            // Act
+            await applicantManager.EditAsync(model);
+
+            // Asset
+            loggerMock.Verify(x => x.Log
+            (LogLevel.Information,
+            It.IsAny<EventId>(),
+            It.Is<It.IsAnyType>((state, t) => state.ToString().Contains(nameof(IApplicantManager.EditAsync))),
+            null,
+            It.IsAny<Func<It.IsAnyType, Exception, string>>()),
+            Times.Once);
+            loggerMock.VerifyNoOtherCalls();
+
+            applicantStorageMock.Verify(x => x.EditAsync(It.Is<Applicant>(y => y.Id == model.Id)),
+                Times.Once);
+            applicantStorageMock.VerifyNoOtherCalls();
+        }
+
+        /// <summary>
+        /// Тест: Метод <see cref="ApplicantManager.AddAsync"/>
+        /// </summary>
+        [Fact]
+        public async Task DeleteShouldWork()
+        {
+            // Arrange
+            var model = new Applicant
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Name{Guid.NewGuid():N}",
+                Gender = Gender.Male,
+                Birthday = DateTime.Now,
+                Education = Education.FTPT,
+                Math = 52,
+                Russian = 52,
+                ComputerScience = 52,
+            };
+            applicantStorageMock.Setup(x => x.DeleteAsync(model.Id))
+                .ReturnsAsync(true);
+
+            // Act
+            var result = await applicantManager.DeleteAsync(model.Id);
+
+            // Asset
+            result.Should().BeTrue();
+
+            loggerMock.Verify(x => x.Log
+            (LogLevel.Information,
+            It.IsAny<EventId>(),
+            It.Is<It.IsAnyType>((state, t) => state.ToString().Contains(nameof(IApplicantManager.DeleteAsync))),
+            null,
+            It.IsAny<Func<It.IsAnyType, Exception, string>>()),
+            Times.Once);
+            loggerMock.VerifyNoOtherCalls();
+
+            applicantStorageMock.Verify(x => x.DeleteAsync(model.Id),
+                Times.Once);
+            applicantStorageMock.VerifyNoOtherCalls();
+
         }
     }
 }
