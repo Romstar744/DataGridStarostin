@@ -135,7 +135,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
             return null;
         }
 
-        /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
+        /// <inheritdoc cref="IApplicantManager.GetStatsAsync()"/>
         async Task<IApplicantStats> IApplicantManager.GetStatsAsync()
         {
             try
