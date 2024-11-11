@@ -11,12 +11,15 @@ using Xunit;
 namespace DataGridStarostin.Standart.Storage.Memory.Tests
 {
     /// <summary>
-    /// <see cref="MemoryApplicantStorage"/>
+    /// Тесты для класса <see cref="MemoryApplicantStorage"/>
     /// </summary>
     public class ApplicantStorageMemoryTests
     {
         private readonly IApplicantStorage applicantStorage;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ApplicantStorageMemoryTests"/>
+        /// </summary>
         public ApplicantStorageMemoryTests()
         {
             applicantStorage = new MemoryApplicantStorage();
@@ -51,6 +54,9 @@ namespace DataGridStarostin.Standart.Storage.Memory.Tests
             .And.BeEmpty();
         }
 
+        /// <summary>
+        /// Тест: Метод <see cref="IApplicantStorage.AddAsync"/> должен вернуть добавленный объект.
+        /// </summary>
         [Fact]
         public async Task AddShouldReturnValue()
         {

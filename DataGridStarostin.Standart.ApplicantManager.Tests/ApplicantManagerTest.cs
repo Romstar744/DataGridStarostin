@@ -9,12 +9,18 @@ using Xunit;
 
 namespace DataGridStarostin.Standart.ApplicantManager.Tests
 {
+    /// <summary>
+    /// Тесты для класса <see cref="ApplicantManager"/>.
+    /// </summary>
     public class ApplicantManagerTest
     {
         private readonly IApplicantManager applicantManager;
         private readonly Mock<IApplicantStorage> applicantStorageMock;
         private readonly Mock<ILogger> loggerMock;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ApplicantManagerTest"/>.
+        /// </summary>
         public ApplicantManagerTest()
         {
             applicantStorageMock = new Mock<IApplicantStorage>();
@@ -30,6 +36,9 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
                 Mock.Of<ILogger>());
         }
 
+        /// <summary>
+        /// Тест: Метод <see cref="ApplicantManager.AddAsync"/>
+        /// </summary>
         [Fact]
         public async Task AddShouldWork()
         {
