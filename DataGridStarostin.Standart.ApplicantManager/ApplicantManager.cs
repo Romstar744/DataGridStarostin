@@ -16,8 +16,8 @@ namespace DataGridStarostin.Standart.ApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
         private readonly ILogger logger;
-        private const string InfoLoggerTxt = "Действие {@Operation} c id {ID}, выполненно за {Milliseconds} мс";
-        private const string ErrorLoggerTxt = "Действие {@Operation} c id {ID}, не было выполненно";
+        private const string InfoLoggerTxt = "Действие {@applicant} c id {ID}, выполненно за {Milliseconds} мс";
+        private const string ErrorLoggerTxt = "Действие {@applicant} c id {ID}, не было выполненно";
 
         /// <summary>
         /// Конструктор
