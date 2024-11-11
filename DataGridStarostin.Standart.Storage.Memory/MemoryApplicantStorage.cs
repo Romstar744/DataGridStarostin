@@ -58,7 +58,6 @@ namespace DataGridStarostin.Standart.Storage.Memory
                 target.Math = applicant.Math;
                 target.Russian = applicant.Russian;
                 target.ComputerScience = applicant.ComputerScience;
-                target.TotalScore = applicant.TotalScore;
             }
 
             return Task.CompletedTask;

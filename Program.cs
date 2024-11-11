@@ -21,7 +21,7 @@ namespace DataGridStarostin
 
             var serilogLogger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
-            .WriteTo.Seq("http://localhost:5341", apiKey: "E2TNFkQdTcdooJZVcAJF")
+            .WriteTo.Seq("http://localhost:5341", apiKey: "522SYX9BfkEWpev99c80")
             .CreateLogger();
 
             var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("datagrid");
