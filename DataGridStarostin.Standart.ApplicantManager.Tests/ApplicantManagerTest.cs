@@ -157,5 +157,104 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
             applicantStorageMock.VerifyNoOtherCalls();
 
         }
+
+        /// <summary>
+        /// Тест: Метод <see cref="ApplicantManager.GetAllAsync"/>
+        /// </summary>
+        [Fact]
+        public async Task GetAllShouldWork()
+        {
+            // Arrange
+            var applicants = new List<Applicant>
+    {
+        new Applicant
+        {
+            Id = Guid.NewGuid(),
+            Name = "Applicant1",
+            Gender = Gender.Male,
+            Birthday = DateTime.Now.AddYears(-20),
+            Education = Education.FullTime,
+            Math = 60,
+            Russian = 60,
+            ComputerScience = 60
+        },
+        new Applicant
+        {
+            Id = Guid.NewGuid(),
+            Name = "Applicant2",
+            Gender = Gender.Female,
+            Birthday = DateTime.Now.AddYears(-22),
+            Education = Education.Сorrespondence,
+            Math = 70,
+            Russian = 70,
+            ComputerScience = 70
+        }
+    };
+            applicantStorageMock.Setup(x => x.GetAllAsync())
+                .ReturnsAsync(applicants);
+
+            // Act
+            var result = await applicantManager.GetAllAsync();
+
+            // Assert
+            result.Should().NotBeNull()
+                .And.HaveCount(applicants.Count)
+                .And.BeEquivalentTo(applicants);
+
+            applicantStorageMock.Verify(x => x.GetAllAsync(), Times.Once);
+            applicantStorageMock.VerifyNoOtherCalls();
+        }
+
+        /// <summary>
+        /// Тест: Метод <see cref="ApplicantManager.GetStatsAsync"/>
+        /// </summary>
+        [Fact]
+        public async Task GetStatsShouldWork()
+        {
+            // Arrange
+            var applicants = new List<Applicant>
+    {
+        new Applicant
+        {
+            Id = Guid.NewGuid(),
+            Name = "Applicant1",
+            Gender = Gender.Male,
+            Birthday = DateTime.Now.AddYears(-20),
+            Education = Education.FullTime,
+            Math = 60,
+            Russian = 60,
+            ComputerScience = 60
+        },
+        new Applicant
+        {
+            Id = Guid.NewGuid(),
+            Name = "Applicant2",
+            Gender = Gender.Female,
+            Birthday = DateTime.Now.AddYears(-22),
+            Education = Education.Сorrespondence,
+            Math = 70,
+            Russian = 70,
+            ComputerScience = 70
+        }
+    };
+            applicantStorageMock.Setup(x => x.GetAllAsync())
+                .ReturnsAsync(applicants);
+
+            // Act
+            var result = await applicantManager.GetStatsAsync();
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Count.Should().Be(applicants.Count);
+            result.MaleCount.Should().Be(1);
+            result.FemaleCount.Should().Be(1);
+            result.FullTimeCount.Should().Be(1);
+            result.СorrespondenceCount.Should().Be(1);
+            result.FTPTCount.Should().Be(0);
+            result.TotalScoreCount.Should().Be(2);
+
+            applicantStorageMock.Verify(x => x.GetAllAsync(), Times.Once);
+            applicantStorageMock.VerifyNoOtherCalls();
+        }
     }
 }
