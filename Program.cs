@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using DataGridStarostin.Standart.ApplicantManager;
 using DataGridStarostin.Standart.Storage.Memory;
 using Microsoft.Extensions.Logging;
+using DataGridStarostin.Standart.Storage.Database;
 using Serilog;
 using Serilog.Extensions.Logging;
 
@@ -26,7 +27,7 @@ namespace DataGridStarostin
 
             var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("datagrid");
 
-            var storage = new MemoryApplicantStorage();
+            var storage = new DataBaseApplicantStorage();
             var manager = new ApplicantManager(storage, logger);
 
             Application.Run(new Form1(manager));

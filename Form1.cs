@@ -34,6 +34,7 @@ namespace DataGridStarostin
             if (applicantsForm.ShowDialog(this) == DialogResult.OK)
             {
                 await applicantManager.AddAsync(ValidateConverter.ToValidateApplicant(applicantsForm.ValidateApplicant));
+                bindingSource.DataSource = await applicantManager.GetAllAsync();
                 bindingSource.ResetBindings(false);
                 await SetStatus();
             }
@@ -48,6 +49,7 @@ namespace DataGridStarostin
                 if (applicantsForm.ShowDialog(this) == DialogResult.OK)
                 {
                     await applicantManager.EditAsync(ValidateConverter.ToValidateApplicant(applicantsForm.ValidateApplicant));
+                    bindingSource.DataSource = await applicantManager.GetAllAsync();
                     bindingSource.ResetBindings(false);
                     await SetStatus();
                 }
@@ -62,6 +64,7 @@ namespace DataGridStarostin
                 if (MessageBox.Show($"Вы действительно хотите удалить абитуриента '{data.Name}'?", "Удаление записи", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     await applicantManager.DeleteAsync(data.Id);
+                    bindingSource.DataSource = await applicantManager.GetAllAsync();
                     bindingSource.ResetBindings(false);
                     await SetStatus();
                 }
