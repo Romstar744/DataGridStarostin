@@ -7,6 +7,7 @@ using DataGridStarostin.Standart.Contracts;
 using System.Data.Entity;
 using DataGridStarostin.Standart.Contracts.Models;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace DataGridStarostin.Standart.Storage.Database
 {
@@ -16,6 +17,16 @@ namespace DataGridStarostin.Standart.Storage.Database
         {
             using (var context = new DataGridContext())
             {
+                var person = new Applicant
+                {
+                    Id = applicant.Id,
+                    Name = applicant.Name,
+                    Birthday = applicant.Birthday,
+                    Education = applicant.Education,
+                    Math = applicant.Math,
+                    Russian = applicant.Russian,
+                    ComputerScience = applicant.ComputerScience,
+                };
                 context.Applicant.Add(applicant);
                 await context.SaveChangesAsync();
             }
@@ -64,7 +75,16 @@ namespace DataGridStarostin.Standart.Storage.Database
                     .ThenByDescending(x => x.Education)
                     .ToListAsync();
 
-                return items;
+                return items.Select(x => new Applicant);
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Birthday = x.Birthday,
+                    Education = x.Education,
+                    Math = x.Math,
+                    Russian = x.Russian,
+                    ComputerScience = x.ComputerScience,
+                }
             }
         }
     }
