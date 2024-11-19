@@ -39,6 +39,12 @@
     <Reference Include="DataGridStarostin.Standart.Storage.Memory, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\PKGH.RomStar.DataGridStarostin.Standart.Storage.Memory.1.0.1\lib\netstandard2.0\DataGridStarostin.Standart.Storage.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -173,6 +179,10 @@
     <ProjectReference Include="DataGridStarostin.Standart.ApplicantManager\DataGridStarostin.Standart.ApplicantManager.csproj">
       <Project>{069a5319-5a2f-4ca0-a2eb-99b27ee65279}</Project>
       <Name>DataGridStarostin.Standart.ApplicantManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="DataGridStarostin.Standart.Storage.Database\DataGridStarostin.Standart.Storage.Database.csproj">
+      <Project>{aa7f2ac6-f05d-4340-bdf6-508e6ec5cc99}</Project>
+      <Name>DataGridStarostin.Standart.Storage.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
