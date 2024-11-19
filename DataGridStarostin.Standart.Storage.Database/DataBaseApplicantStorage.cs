@@ -11,8 +11,15 @@ using System.Xml.Linq;
 
 namespace DataGridStarostin.Standart.Storage.Database
 {
+    /// <summary>
+    /// Этот класс реализует интерфейс IApplicantStorage с использованием базы данных.
+    /// </summary>
     public class DataBaseApplicantStorage : IApplicantStorage
     {
+
+        /// <summary>
+        /// Добавляет нового заявителя в базу данных.
+        /// </summary>
         public async Task<Applicant> AddAsync(Applicant applicant)
         {
             using (var context = new DataGridContext())
@@ -33,6 +40,10 @@ namespace DataGridStarostin.Standart.Storage.Database
 
             return applicant;
         }
+
+        /// <summary>
+        /// Удаляет заявителя из базы данных по идентификатору.
+        /// </summary>
         public async Task<bool> DeleteAsync(Guid id)
         {
             using (var context = new DataGridContext())
@@ -47,6 +58,10 @@ namespace DataGridStarostin.Standart.Storage.Database
             }
             return false;
         }
+
+        /// <summary>
+        /// Обновляет существующего заявителя в базе данных.
+        /// </summary>
         public async Task EditAsync(Applicant applicant)
         {
             using (var context = new DataGridContext())
@@ -65,6 +80,10 @@ namespace DataGridStarostin.Standart.Storage.Database
                 await context.SaveChangesAsync();
             }
         }
+
+        /// <summary>
+        /// Получает всех заявителей из базы данных.
+        /// </summary>
         public async Task<IReadOnlyCollection<Applicant>> GetAllAsync()
         {
             using (var context = new DataGridContext())
