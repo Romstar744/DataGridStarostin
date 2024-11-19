@@ -45,7 +45,6 @@ namespace DataGridStarostin.Standart.Storage.Database
                     return true;
                 }
             }
-
             return false;
         }
         public async Task EditAsync(Applicant applicant)
@@ -71,20 +70,10 @@ namespace DataGridStarostin.Standart.Storage.Database
             using (var context = new DataGridContext())
             {
                 var items = await context.Applicant
-                    .OrderBy(x => x.Name)
-                    .ThenByDescending(x => x.Education)
-                    .ToListAsync();
-
-                return items.Select(x => new Applicant);
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                    Birthday = x.Birthday,
-                    Education = x.Education,
-                    Math = x.Math,
-                    Russian = x.Russian,
-                    ComputerScience = x.ComputerScience,
-                }
+                    .OrderByDescending(x => x.Name)
+                    .ToListAsync()
+                    ;
+                return items;
             }
         }
     }

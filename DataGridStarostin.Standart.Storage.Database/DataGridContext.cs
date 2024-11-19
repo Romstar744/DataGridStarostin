@@ -6,15 +6,21 @@ using DataGridStarostin.Standart.Contracts.Models;
 
 namespace DataGridStarostin.Standart.Storage.Database
 {
+    /// <summary>
+    /// Контекст базы данных
+    /// </summary>
     public class DataGridContext : DbContext
     {
-        public DataGridContext()
-            : base("DataGridConnectionString")
+        /// <summary>
+        /// Конструктор контекста базы данных
+        /// </summary>
+        public DataGridContext() : base("DataGridApplicants")
         {
         }
 
+        /// <summary>
+        /// Таблица <see cref="Applicant"/> в базе данных
+        /// </summary>
         public DbSet<Applicant> Applicant { get; set; }
-
-        // public DbSet<ClassRoom> ClassRoom { get; set; }
     }
 }
