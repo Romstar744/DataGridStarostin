@@ -109,6 +109,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
                     stopwatch.ElapsedMilliseconds
                 );
         }
+
         /// <inheritdoc cref="IApplicantManager.GetAllAsync()"/>
         async Task<IReadOnlyCollection<Applicant>> IApplicantManager.GetAllAsync()
         {
@@ -122,6 +123,7 @@ namespace DataGridStarostin.Standart.ApplicantManager
             }
             return null;
         }
+
         /// <inheritdoc cref="IApplicantManager.GetStatsAsync()"/>
         async Task<IApplicantStats> IApplicantManager.GetStatsAsync()
         {
