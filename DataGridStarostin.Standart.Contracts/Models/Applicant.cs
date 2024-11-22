@@ -21,35 +21,26 @@ namespace DataGridStarostin.Standart.Contracts.Models
         /// <summary>
         /// День рождения
         /// </summary>
-
         public DateTime Birthday { get; set; }
 
         /// <summary>
         /// <inheritdoc cref="DataGridStarostin.Models.Education"/>
         /// </summary>
-
         public Education Education { get; set; }
 
         /// <summary>
         /// Баллы по математике
         /// </summary>
-
         public double Math { get; set; }
 
         /// <summary>
         /// Баллы по русскому языку
         /// </summary>
-
         public double Russian { get; set; }
 
         /// <summary>
         /// Баллы по информатике
         /// </summary>
-
         public double ComputerScience { get; set; }
-
-        /// <summary>
-        /// Сумма баллов за 3 экзамена ЕГЭ
-        /// </summary>
     }
 }

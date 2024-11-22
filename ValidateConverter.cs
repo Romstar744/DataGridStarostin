@@ -7,11 +7,13 @@ using DataGridStarostin.Standart.Contracts.Models;
 
 namespace DataGridStarostin
 {
+
     /// <summary>
     /// Методы приведения одного типа к другому
     /// </summary>
     public static class ValidateConverter
     {
+
         /// <summary>
         /// Привести <see cref="Applicant"/> к <see cref="ValidateApplicant"/>
         /// </summary>
@@ -29,6 +31,7 @@ namespace DataGridStarostin
                 ComputerScience = validateApplicant.ComputerScience,
             };
         }
+
         /// <summary>
         /// Привести <see cref="ValidateApplicant"/> к <see cref="Applicant"/>
         /// </summary>

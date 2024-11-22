@@ -2,11 +2,13 @@
 
 namespace DataGridStarostin.Standart.Contracts.Models
 {
+
     /// <summary>
     /// Варианты формы обучения
     /// </summary>
     public enum Education
     {
+
         /// <summary>
         /// Очная
         /// </summary>

@@ -7,6 +7,7 @@ namespace DataGridStarostin.Standart.Contracts.Models
     /// </summary>
     public enum Gender
     {
+
         /// <summary>
         /// Мужской
         /// </summary>

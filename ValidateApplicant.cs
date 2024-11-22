@@ -10,12 +10,14 @@ namespace DataGridStarostin.Standart.Contracts.Models
     public class ValidateApplicant
     {
         public Guid Id { get; set; }
+
         /// <summary>
         /// ФИО
         /// </summary>
         [Required]
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
+
         /// <summary>
         /// <inheritdoc cref="DataGridStarostin.Models.Gender"/>
         /// </summary>
@@ -54,9 +56,5 @@ namespace DataGridStarostin.Standart.Contracts.Models
         [Range(0, 100)]
         [Required]
         public double ComputerScience { get; set; }
-
-        /// <summary>
-        /// Сумма баллов за 3 экзамена ЕГЭ
-        /// </summary>
     }
 }
