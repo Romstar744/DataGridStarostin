@@ -8,8 +8,4 @@
     <PackageReference Include="EntityFramework" Version="6.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataGridStarostin.Standart.Contracts\DataGridStarostin.Standart.Contracts.csproj" />
-  </ItemGroup>
-
 </Project>

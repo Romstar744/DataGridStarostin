@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.ApplicantManager.Tests", "DataGridStarostin.Standart.ApplicantManager.Tests\DataGridStarostin.Standart.ApplicantManager.Tests.csproj", "{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.Storage.Database", "DataGridStarostin.Standart.Storage.Database\DataGridStarostin.Standart.Storage.Database.csproj", "{AA7F2AC6-F05D-4340-BDF6-508E6EC5CC99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataGridStarostin.WebApplication", "DataGridStarostin.WebApplication\DataGridStarostin.WebApplication.csproj", "{E187428D-4C00-40B3-9BEB-A6D3C764AE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStarostin.Standart.Storage.DB", "DataGridStarostin.Standart.Storage.DB\DataGridStarostin.Standart.Storage.DB.csproj", "{45E9F57E-160E-4C8D-9354-C9AD9FE4BC10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +49,14 @@ Global
 		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9BB72A-384E-4EB4-9E01-F522BAAE87FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA7F2AC6-F05D-4340-BDF6-508E6EC5CC99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA7F2AC6-F05D-4340-BDF6-508E6EC5CC99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA7F2AC6-F05D-4340-BDF6-508E6EC5CC99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA7F2AC6-F05D-4340-BDF6-508E6EC5CC99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E187428D-4C00-40B3-9BEB-A6D3C764AE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E187428D-4C00-40B3-9BEB-A6D3C764AE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E187428D-4C00-40B3-9BEB-A6D3C764AE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E187428D-4C00-40B3-9BEB-A6D3C764AE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E9F57E-160E-4C8D-9354-C9AD9FE4BC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E9F57E-160E-4C8D-9354-C9AD9FE4BC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E9F57E-160E-4C8D-9354-C9AD9FE4BC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E9F57E-160E-4C8D-9354-C9AD9FE4BC10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

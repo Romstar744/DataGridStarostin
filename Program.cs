@@ -3,9 +3,10 @@ using System.Windows.Forms;
 using DataGridStarostin.Standart.ApplicantManager;
 using DataGridStarostin.Standart.Storage.Memory;
 using Microsoft.Extensions.Logging;
-using DataGridStarostin.Standart.Storage.Database;
+using DataGridStarostin.Standart.Storage.DB;
 using Serilog;
 using Serilog.Extensions.Logging;
+using DataGridStarostin.Standart.Contracts;
 
 namespace DataGridStarostin
 {
@@ -23,10 +24,10 @@ namespace DataGridStarostin
 
             var serilogLogger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
-            .WriteTo.Seq("http://localhost:5341", apiKey: "522SYX9BfkEWpev99c80")
+            .WriteTo.Seq("http://localhost:5341")
             .CreateLogger();
 
-            var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger("datagrid");
+            var logger = new SerilogLoggerFactory(serilogLogger).CreateLogger<IApplicantManager>();
 
             var storage = new DataBaseApplicantStorage();
             var manager = new ApplicantManager(storage, logger);

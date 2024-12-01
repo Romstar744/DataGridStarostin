@@ -17,7 +17,7 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
     {
         private readonly IApplicantManager applicantManager;
         private readonly Mock<IApplicantStorage> applicantStorageMock;
-        private readonly Mock<ILogger> loggerMock;
+        private readonly Mock<ILogger<IApplicantManager>> loggerMock;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ApplicantManagerTest"/>.
@@ -25,7 +25,7 @@ namespace DataGridStarostin.Standart.ApplicantManager.Tests
         public ApplicantManagerTest()
         {
             applicantStorageMock = new Mock<IApplicantStorage>();
-            loggerMock = new Mock<ILogger>();
+            loggerMock = new Mock<ILogger<IApplicantManager>>();
 
             loggerMock.Setup(x => x.Log(LogLevel.Information,
                 It.IsAny<EventId>(),
