@@ -5,8 +5,14 @@ using Serilog;
 
 namespace DataGridStarostin.WebApplication
 {
+    /// <summary>
+    /// Главный класс приложения, отвечающий за запуск и конфигурацию.
+    /// </summary>
     public static class Program
     {
+        /// <summary>
+        /// Главная функция приложения.
+        /// </summary>
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()

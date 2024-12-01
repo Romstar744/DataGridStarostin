@@ -6,17 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DataGridStarostin.WebApplication.Controllers
 {
+    /// <summary>
+    /// Контроллер для управления заявками абитуриентов.
+    /// </summary>
     public class ApplicantController : Controller
     {
         private readonly IApplicantManager applicantManager;
 
+        /// <summary>
+        /// Конструктор контроллера.
+        /// </summary>
         public ApplicantController(IApplicantManager applicantManager)
         {
             this.applicantManager = applicantManager;
         }
 
         /// <summary>
-        /// Отображает список всех продуктов.
+        /// Отображает список всех заявок абитуриентов.
         /// </summary>
         public async Task<IActionResult> Index()
         {
@@ -29,7 +35,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Отображает страницу создания нового продукта.
+        /// Отображает форму создания новой заявки абитуриента.
         /// </summary>
         public IActionResult Create()
         {
@@ -37,7 +43,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Обрабатывает создание нового продукта.
+        /// Обрабатывает создание новой заявки абитуриента.
         /// </summary>
         [HttpPost]
         public async Task<IActionResult> Create(Applicant applicant)
@@ -53,7 +59,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Отображает страницу редактирования продукта по его идентификатору.
+        /// Отображает форму редактирования заявки абитуриента по её идентификатору.
         /// </summary>
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -68,7 +74,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Обрабатывает редактирование существующего продукта.
+        /// Обрабатывает редактирование существующей заявки абитуриента.
         /// </summary>
         [HttpPost]
         public async Task<IActionResult> Edit(Guid id, Applicant applicant)
@@ -90,7 +96,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Обрабатывает удаление продукта по его идентификатору.
+        /// Обрабатывает удаление заявки абитуриента по её идентификатору.
         /// </summary>
         [HttpPost]
         public async Task<IActionResult> Delete(Guid id)
@@ -104,7 +110,7 @@ namespace DataGridStarostin.WebApplication.Controllers
         }
 
         /// <summary>
-        /// Отображает страницу конфиденциальности.
+        /// Отображает страницу политики конфиденциальности.
         /// </summary>
         public IActionResult Privacy()
         {

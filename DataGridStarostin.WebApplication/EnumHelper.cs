@@ -5,8 +5,14 @@ using System.Reflection;
 
 namespace DataGridStarostin.WebApplication
 {
+    /// <summary>
+    /// Вспомогательный класс для работы с перечислениями (enum), предоставляющий способ получения списка элементов SelectListItem из типа перечисления.  Полезно для заполнения выпадающих списков в представлениях Razor.
+    /// </summary>
     public static class EnumHelper
     {
+        /// <summary>
+        /// Создает список элементов SelectListItem из типа перечисления, используя атрибут DescriptionAttribute, если он доступен, в противном случае используя имя значения перечисления.
+        /// </summary>
         public static IEnumerable<SelectListItem> GetEnumDescriptions(Type enumType)
         {
             var selectListItems = new List<SelectListItem>();
