@@ -15,14 +15,14 @@ namespace DataGridStarostin.Standart.ApplicantManager
     public class ApplicantManager : IApplicantManager
     {
         private readonly IApplicantStorage applicantStorage;
-        private readonly ILogger logger;
+        private readonly ILogger<IApplicantManager> logger;
         private const string InfoLoggerTxt = "Действие {@applicant} c id {ID}, выполненно за {Milliseconds} мс";
         private const string ErrorLoggerTxt = "Действие {@applicant} c id {ID}, не было выполненно";
 
         /// <summary>
         /// Конструктор
         /// </summary>
-        public ApplicantManager(IApplicantStorage applicantStorage, ILogger logger)
+        public ApplicantManager(IApplicantStorage applicantStorage, ILogger<IApplicantManager> logger)
         {
             this.logger = logger;
             this.applicantStorage = applicantStorage;

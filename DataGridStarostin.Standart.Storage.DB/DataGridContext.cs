@@ -4,7 +4,7 @@ using System.Text;
 using System.Data.Entity;
 using DataGridStarostin.Standart.Contracts.Models;
 
-namespace DataGridStarostin.Standart.Storage.Database
+namespace DataGridStarostin.Standart.Storage.DB
 {
     /// <summary>
     /// Контекст базы данных

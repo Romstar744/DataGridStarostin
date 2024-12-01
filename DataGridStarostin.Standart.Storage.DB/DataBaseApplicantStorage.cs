@@ -9,7 +9,7 @@ using DataGridStarostin.Standart.Contracts.Models;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace DataGridStarostin.Standart.Storage.Database
+namespace DataGridStarostin.Standart.Storage.DB
 {
     /// <summary>
     /// Этот класс реализует интерфейс IApplicantStorage с использованием базы данных.
@@ -84,14 +84,11 @@ namespace DataGridStarostin.Standart.Storage.Database
         /// <summary>
         /// Получает всех заявителей из базы данных.
         /// </summary>
-        public async Task<IReadOnlyCollection<Applicant>> GetAllAsync()
+        async Task<IReadOnlyCollection<Applicant>> IApplicantStorage.GetAllAsync()
         {
             using (var context = new DataGridContext())
             {
-                var items = await context.Applicant
-                    .OrderByDescending(x => x.Name)
-                    .ToListAsync()
-                    ;
+                var items = await context.Applicant.ToListAsync();
                 return items;
             }
         }
