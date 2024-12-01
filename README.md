@@ -4,3 +4,4 @@
 # Добавление NuGet пакета и logger
 # SEQ + UnitTests
 # ORM (EF)
+# ASP.NET CORE MVC
